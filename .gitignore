@@ -1,0 +1,19 @@
+# Build output
+build/
+out/
+dist/
+
+# Temp files
+*.tmp
+*.log
+
+# stinky junk
+*.swp
+.DS_Store
+Thumbs.db
+
+# do not tell this to anyone pls
+.env
+*.key
+*.pem
+
