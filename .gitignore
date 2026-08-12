@@ -17,3 +17,7 @@ Thumbs.db
 *.key
 *.pem
 
+# now we are talking*.iso
+.chroot/
+.binary/
+.cache/
