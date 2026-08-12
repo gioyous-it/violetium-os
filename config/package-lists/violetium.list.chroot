@@ -1,0 +1,5 @@
+fluxbox
+xorg
+lightdm
+network-manager
+systemd-zram-generator
