@@ -3,4 +3,3 @@ xorg
 lightdm
 network-manager
 systemd-zram-generator
-linux-image-amd64

@@ -1,0 +1,47 @@
+#!/bin/sh
+set -e
+
+ARCH="${VIOLETIUM_ARCH:-amd64}"
+
+case "$ARCH" in
+    amd64|i386)
+        BOOTLOADERS="grub-pc grub-efi"
+        ;;
+    arm64|armhf)
+        BOOTLOADERS="grub-efi"
+        ;;
+    *)
+        BOOTLOADERS=""
+        ;;
+esac
+
+lb config noauto \
+    --mode debian \
+    --distribution trixie \
+    --architectures "$ARCH" \
+    --system live \
+    --initramfs live-boot \
+    --initsystem systemd \
+    --binary-image iso-hybrid \
+    --bootloaders "$BOOTLOADERS" \
+    --debian-installer live \
+    --archive-areas "main contrib non-free non-free-firmware" \
+    --firmware-binary true \
+    --firmware-chroot true \
+    --iso-application "VioletiumOS" \
+    --iso-publisher "VioletiumOS Project" \
+    --iso-volume "VIOLETIUM-$ARCH" \
+    --image-name "VioletiumOS-$ARCH"
+
+mkdir -p config/package-lists
+
+cat > config/package-lists/violetium.list.chroot <<PACKAGES
+fluxbox
+xorg
+lightdm
+network-manager
+systemd-zram-generator
+PACKAGES
+
+# Let live-build select the architecture's kernel package.
+sed -i 's/^LB_LINUX_PACKAGES=.*/LB_LINUX_PACKAGES="linux-image"/' config/chroot

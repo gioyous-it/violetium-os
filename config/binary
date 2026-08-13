@@ -1,169 +1,119 @@
 # config/binary - options for live-build(7), binary stage
 
-# $LB_BINARY_FILESYSTEM: set image filesystem
-# (Default: fat16)
-LB_BINARY_FILESYSTEM="fat16"
+# Set image type
+LB_IMAGE_TYPE="iso-hybrid"
 
-# $LB_BINARY_IMAGES: set image type
-# (Default: iso-hybrid)
-LB_BINARY_IMAGES="iso-hybrid"
+# Set image filesystem
+LB_BINARY_FILESYSTEM="fat32"
 
-# $LB_APT_INDICES: set apt/aptitude generic indices
-# (Default: true)
+# Set apt/aptitude generic indices
 LB_APT_INDICES="true"
 
-# $LB_BOOTAPPEND_LIVE: set boot parameters
-# (Default: empty)
-LB_BOOTAPPEND_LIVE=""
+# Set boot parameters
+LB_BOOTAPPEND_LIVE="boot=live components quiet splash"
 
-# $LB_BOOTAPPEND_INSTALL: set boot parameters
-# (Default: empty)
+# Set boot parameters
 LB_BOOTAPPEND_INSTALL=""
 
-# $LB_BOOTAPPEND_FAILSAFE: set boot parameters
-# (Default: empty)
-LB_BOOTAPPEND_FAILSAFE="memtest noapic noapm nodma nomce nolapic nomodeset nosmp nosplash vga=normal"
+# Set boot parameters
+LB_BOOTAPPEND_LIVE_FAILSAFE="boot=live components memtest noapic noapm nodma nomce nosmp nosplash vga=788"
 
-# $LB_BOOTLOADER: set bootloader
-# (Default: syslinux)
-LB_BOOTLOADER="syslinux"
+# Set BIOS bootloader
+LB_BOOTLOADER_BIOS="grub-pc"
 
-# $LB_CHECKSUMS: set checksums
-# (Default: sha256)
-LB_CHECKSUMS="sha256"
+# Set EFI bootloader
+LB_BOOTLOADER_EFI="grub-efi"
 
-# $LB_COMPRESSION: set compression
-# (Default: xz)
-LB_COMPRESSION="xz"
+# Set bootloaders
+LB_BOOTLOADERS="grub-pc grub-efi"
 
-# $LB_ZSYNC: set zsync
-# (Default: true)
-LB_ZSYNC="true"
+# Set checksums
+LB_CHECKSUMS="sha256 md5"
 
-# ${LB_BUILD_WITH_CHROOT: control if we build binary images chrooted
-# (Default: true)
-# DO NEVER, *NEVER*, *N*E*V*E*R* SET THIS OPTION to false.
+# Set compression
+LB_COMPRESSION="none"
+
+# Support dm-verity on rootfs
+LB_DM_VERITY=""
+
+# Support FEC on dm-verity rootfs
+LB_DM_VERITY_FEC_ROOTS=""
+
+# Set sign script for roothash for dm-verity rootfs
+LB_DM_VERITY_SIGN=""
+
+# Set zsync
+LB_ZSYNC="false"
+
+# Control if we build binary images chrooted
+# NEVER, *EVER*, *E*V*E*R* SET THIS OPTION to false.
 LB_BUILD_WITH_CHROOT="true"
 
-# $LB_DEBIAN_INSTALLER: set debian-installer
-# (Default: false)
-LB_DEBIAN_INSTALLER="false"
+# Set debian-installer
+LB_DEBIAN_INSTALLER="live"
 
-# $LB_DEBIAN_INSTALLER_DISTRIBUTION: set debian-installer suite
-# (Default: empty)
+# Set debian-installer suite
 LB_DEBIAN_INSTALLER_DISTRIBUTION="trixie"
 
-# $LB_DEBIAN_INSTALLER_PRESEEDFILE: set debian-installer preseed filename/url
-# (Default: )
+# Set debian-installer preseed filename/url
 LB_DEBIAN_INSTALLER_PRESEEDFILE=""
 
-# $LB_DEBIAN_INSTALLER_GUI: toggle use of GUI debian-installer
-# (Default: false)
-LB_DEBIAN_INSTALLER_GUI="false"
+# Toggle use of GUI debian-installer
+LB_DEBIAN_INSTALLER_GUI="true"
 
-# $LB_GRUB_SPLASH: set custom grub splash
-# (Default: empty)
-LB_GRUB_SPLASH=""
+# Set hdd label
+LB_HDD_LABEL="DEBIAN_LIVE"
 
-# $LB_HDD_LABEL: set hdd label
-# (Default: UBUNTU)
-LB_HDD_LABEL="UBUNTU"
+# Set hdd filesystem size
+LB_HDD_SIZE="auto"
 
-# $LB_HDD_SIZE: set hdd filesystem size
-# (Default: 10000)
-LB_HDD_SIZE="10000"
+# Set start of partition for the hdd target for BIOSes that expect a specific boot partition start (e.g. "63s"). If empty, use optimal layout.
+LB_HDD_PARTITION_START=""
 
-# $LB_ISO_APPLICATION: set iso author
-# (Default: Ubuntu Live)
-LB_ISO_APPLICATION="Ubuntu Live"
+# Set iso author
+LB_ISO_APPLICATION="VioletiumOS"
 
-# $LB_ISO_PREPARER: set iso preparer
-# (Default: live-build $VERSION; http://packages.qa.debian.org/live-build)
-LB_ISO_PREPARER="live-build $VERSION; http://packages.qa.debian.org/live-build"
+# Set iso preparer
+LB_ISO_PREPARER="live-build @LB_VERSION@; https://salsa.debian.org/live-team/live-build"
 
-# $LB_ISO_PUBLISHER: set iso publisher
-# (Default: Debian Live project; http://live.debian.net/; debian-live@lists.debian.org)
-LB_ISO_PUBLISHER="Debian Live project; http://live.debian.net/; debian-live@lists.debian.org"
+# Set iso publisher
+LB_ISO_PUBLISHER="VioletiumOS Project"
 
-# $LB_ISO_VOLUME: set iso volume (max 32 chars)
-# (Default: Ubuntu trixie $(date +%Y%m%d-%H:%M))
-LB_ISO_VOLUME="Violetium Seedling 0.1.1 $(date +%Y%m%d-%H:%M)"
+# Set iso volume (max 32 chars)
+LB_ISO_VOLUME="VIOLETIUM-amd64"
 
-# $LB_EXT_BLOCKSIZE: set EXT block size
-# (Default: unset)
-LB_EXT_BLOCKSIZE=""
-
-# $LB_EXT_RESIZEBLOCKS: set EXT resize parameter
-# (Default: unset)
-LB_EXT_RESIZEBLOCKS=""
-
-# $LB_EXT_FUDGEFACTOR: set extra size of EXT images (in %)
-# (Default: unset)
-LB_EXT_FUDGEFACTOR=""
-
-# $LB_JFFS2_ERASEBLOCK: set jffs2 eraseblock size
-# (Default: unset)
+# Set jffs2 eraseblock size
 LB_JFFS2_ERASEBLOCK=""
 
-# $LB_MEMTEST: set memtest
-# (Default: memtest86+)
-LB_MEMTEST="memtest86+"
+# Set memtest
+LB_MEMTEST="none"
 
-# $LB_WIN32_LOADER: set win32-loader
-# (Default: )
-LB_WIN32_LOADER=""
+# Set loadlin
+LB_LOADLIN="false"
 
-# $LB_NET_ROOT_FILESYSTEM: set netboot filesystem
-# (Default: nfs)
-LB_NET_ROOT_FILESYSTEM="nfs"
+# Set win32-loader
+LB_WIN32_LOADER="false"
 
-# $LB_NET_ROOT_MOUNTOPTIONS: set nfsopts
-# (Default: empty)
-LB_NET_ROOT_MOUNTOPTIONS=""
-
-# $LB_NET_ROOT_PATH: set netboot server directory
-# (Default: /srv/ubuntu-live)
-LB_NET_ROOT_PATH="/srv/ubuntu-live"
-
-# $LB_NET_ROOT_SERVER: set netboot server address
-# (Default: 192.168.1.1)
-LB_NET_ROOT_SERVER="192.168.1.1"
-
-# $LB_NET_COW_FILESYSTEM: set net client cow filesystem
-# (Default: nfs)
-LB_NET_COW_FILESYSTEM="nfs"
-
-# $LB_NET_COW_MOUNTOPTIONS: set cow mount options
-# (Default: empty)
-LB_NET_COW_MOUNTOPTIONS=""
-
-# $LB_NET_COW_PATH: set cow directory
-# (Default: )
-LB_NET_COW_PATH=""
-
-# $LB_NET_COW_SERVER: set cow server
-# (Default: )
-LB_NET_COW_SERVER=""
-
-# $LB_NET_TARBALL: set net tarball
-# (Default: true)
+# Set net tarball
 LB_NET_TARBALL="true"
 
-# $LB_FIRMWARE_BINARY: include firmware packages in debian-installer
-# (Default: false)
-LB_FIRMWARE_BINARY="false"
+# Set onie
+LB_ONIE="false"
 
-# $LB_FIRMWARE_CHROOT: include firmware packages in debian-installer
-# (Default: false)
-LB_FIRMWARE_CHROOT="false"
+# Set onie additional kernel cmdline options
+LB_ONIE_KERNEL_CMDLINE=""
 
-# $LB_SWAP_FILE_PATH: set swap file path
-# (Default: )
+# Set inclusion of firmware packages in debian-installer
+LB_FIRMWARE_BINARY="true"
+
+# Set inclusion of firmware packages in the live image
+LB_FIRMWARE_CHROOT="true"
+
+# Set swap file path
 LB_SWAP_FILE_PATH=""
 
-# $LB_SWAP_FILE_SIZE: set swap file size
-# (Default: 512)
+# Set swap file size
 LB_SWAP_FILE_SIZE="512"
 
-# $LB_SYSLINUX_THEME: set syslinux theme package
-# (Default: ubuntu-oneiric)
+# Enable/disable UEFI secure boot support
+LB_UEFI_SECURE_BOOT="auto"
