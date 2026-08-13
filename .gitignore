@@ -22,3 +22,20 @@ Thumbs.db
 .chroot/
 .binary/
 .cache/
+
+# live-build generated files
+.build/
+binary/
+chroot/
+cache/
+*.iso
+*.hybrid.iso
+*.contents
+*.files
+*.packages
+binary.modified_timestamps
+binary.packages
+chroot.files
+chroot.headers
+chroot.packages.install
+chroot.packages.live
