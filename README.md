@@ -4,7 +4,7 @@ Violetium is a lightweight Debian-based Linux distribution designed to run well 
 
 ## Seedling 0.1
 
-Seedling 0.1 is the first Violetium development release.
+Seedling 0.1.1 is the second Violetium development release.
 
 ### Desktop
 
@@ -12,7 +12,7 @@ Seedling 0.1 is the first Violetium development release.
 - Xorg
 - LightDM
 
-Soon adding Fluxland, Not Implementing yet Because 0.1 Is just to test things up.
+Soon adding Fluxland, Not Implementing yet Because 0.1.1 is still focused on testing and refinement.
 
 ### System
 
@@ -34,7 +34,7 @@ sudo lb build
 
 ## Status
 
-Violetium is experimental software. Seedling 0.1 is intended for testing and development.
+Violetium is experimental software. Seedling 0.1.1 is intended for testing and development.
 
 ## License
 

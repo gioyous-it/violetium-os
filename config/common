@@ -73,7 +73,8 @@ LB_INITRAMFS_COMPRESSION=""
 
 # $LB_INITSYSTEM: set init system
 # (Default: )
-LB_INITSYSTEM=""
+LB_INITSYSTEM="systemd"
+# (Default: )
 
 # $LB_FDISK: set fdisk program
 # (Default: autodetected)

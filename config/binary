@@ -87,7 +87,7 @@ LB_ISO_PUBLISHER="Debian Live project; http://live.debian.net/; debian-live@list
 
 # $LB_ISO_VOLUME: set iso volume (max 32 chars)
 # (Default: Ubuntu trixie $(date +%Y%m%d-%H:%M))
-LB_ISO_VOLUME="Violetium OS Seedling 0.1 $(date +%Y%m%d-%H:%M)"
+LB_ISO_VOLUME="Violetium Seedling 0.1.1 $(date +%Y%m%d-%H:%M)"
 
 # $LB_EXT_BLOCKSIZE: set EXT block size
 # (Default: unset)
