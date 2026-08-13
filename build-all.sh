@@ -27,12 +27,11 @@ for ARCH in "${ARCHES[@]}"; do
 
     sudo lb clean --purge || true
 
-    rm -rf config
 
     VIOLETIUM_ARCH="$ARCH" ./auto/config
 
     echo "--- architecture ---"
-    grep '^LB_ARCHITECTURES=' config/bootstrap
+    grep -E '^LB_LINUX_FLAVOURS_WITH_ARCH=' config/chroot || true
 
     echo "--- installer ---"
     grep -E '^LB_DEBIAN_INSTALLER=' config/binary
@@ -41,7 +40,7 @@ for ARCH in "${ARCHES[@]}"; do
     grep '^LB_INITRAMFS=' config/common
 
     echo "--- bootloader ---"
-    grep '^LB_BOOTLOADER=' config/binary
+    grep -E '^LB_BOOTLOADER_BIOS=|^LB_BOOTLOADER_EFI=' config/binary
 
     echo
     echo "Building $ARCH..."
