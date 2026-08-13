@@ -12,7 +12,7 @@ Seedling 0.1.1 is the current release.
 - Xorg
 - LightDM
 
-Soon adding Fluxland, Not Implementing yet Because 0.1.1 is still focused on testing and refinement.
+Soon adding Fluxland, Not Implementing yet Because 0.1.1 is still focused on testing, updates and refinement.
 
 ### System
 
