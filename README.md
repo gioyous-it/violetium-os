@@ -1,6 +1,6 @@
 # Violetium
 
-Violetium is a lightweight Debian-based Linux distribution designed to run well on old computers while remaining useful on modern hardware.
+Violetium is a lightweight Debian-based Linux distribution designed to run well on old computers while remaining useful on modern hardware. It's also designed to be Slightly faster than many Debian Installation, while being more usable, and with no old Bloatware hidden in Debian.
 
 ## Seedling 0.1
 
