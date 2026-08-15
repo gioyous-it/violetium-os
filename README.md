@@ -25,8 +25,6 @@ none
 - automatic ZRAM (Seedling 0.1.2)
 - lightweight package selection
 
-Fluxland is planned for a future Violetium release.
-
 ## Building
 
 VioletiumOS is built using Debian live-build.
