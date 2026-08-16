@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Battery indicator
+cbatticon &
+
+# Future wallpaper
+# feh --bg-fill /usr/share/backgrounds/violetium.png &
+
+# Future Wayland/Weston support — VioletiumOS 0.2.x
+# weston --backend=x11-backend.so &

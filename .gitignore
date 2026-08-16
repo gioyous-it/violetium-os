@@ -39,3 +39,6 @@ chroot.files
 chroot.headers
 chroot.packages.install
 chroot.packages.live
+
+# build script since 0.1.2
+releases/
