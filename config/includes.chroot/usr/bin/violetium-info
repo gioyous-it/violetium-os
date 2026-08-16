@@ -1,10 +1,12 @@
 #!/bin/sh
 
-echo "Violetium Seedling 0.1.1"
-echo "Debian-based lightweight Linux"
-echo "Desktop: Fluxbox (placeholder, may not be your desktop)"
-echo "Display server: X11 (placeholder, may not be your display server)"
-echo "Architecture: $(dpkg --print-architecture)"
-echo "Kernel: $(uname -r)"
-echo "Thank you for using Violetium
-echo "VioletiumOS is Currently in Pre-alpha and This script is a Placeholder"
+. /etc/os-release
+
+printf '%s\n' "$PRETTY_NAME"
+printf '%s\n' "ID:           $ID"
+printf '%s\n' "Version:      $VERSION_ID"
+printf '%s\n' "Architecture: $(dpkg --print-architecture)"
+printf '%s\n' "Kernel:       $(uname -r)"
+printf "%-14s%s\n" "Desktop:" "${XDG_CURRENT_DESKTOP:-${XDG_SESSION_DESKTOP:-Unknown}}"
+printf "%-14s%s\n" "Display:" "${XDG_SESSION_TYPE:-Unknown}"
+printf "%-14s%s\n" "Init:" "$(ps -p 1 -o comm=)"
