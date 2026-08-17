@@ -12,6 +12,7 @@ case "$ARCH" in
         ;;
     *)
         BOOTLOADERS=""
+        KERNEL_FLAVOUR=""
         ;;
 esac
 

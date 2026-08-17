@@ -13,6 +13,10 @@ systemd-zram-generator
 util-linux
 pipewire-audio
 wireplumber
+pipewire-pulse
+pipewire-alsa
+libspa-0.2-bluetooth
+alsa-utils
 pavucontrol
 bluez
 blueman
@@ -35,3 +39,10 @@ pcmanfm
 maim
 slop
 cbatticon
+libasound2-plugins
+libasound2-plugin-bluez
+gstreamer1.0-pipewire
+gstreamer1.0-plugins-base
+gstreamer1.0-plugins-good
+pulseaudio-utils
+playerctl

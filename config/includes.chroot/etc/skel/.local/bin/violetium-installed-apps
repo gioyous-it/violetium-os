@@ -1,0 +1,19 @@
+#!/bin/sh
+
+OUTPUT="$HOME/.config/violetium/installed-apps.menu"
+mkdir -p "$(dirname "$OUTPUT")"
+
+find /usr/share/applications "$HOME/.local/share/applications" \
+    -type f -name '*.desktop' 2>/dev/null |
+while read -r file; do
+    name=$(grep -m1 '^Name=' "$file" | cut -d= -f2-)
+    exec=$(grep -m1 '^Exec=' "$file" | cut -d= -f2-)
+
+    [ -n "$name" ] || continue
+    [ -n "$exec" ] || continue
+
+    # Remove desktop-entry field codes such as %U, %F, etc.
+    exec=$(printf '%s' "$exec" | sed -E 's/%[fFuUdDnNickvm]//g')
+
+    printf '[exec] (%s) {%s}\n' "$name" "$exec"
+done | sort -u > "$OUTPUT"

@@ -1,0 +1,43 @@
+[begin] (VioletiumOS)
+
+    [submenu] (Applications)
+
+        [submenu] (Shells)
+            [exec] (Bash) {xterm -e bash}
+            [exec] (Dash) {xterm -e dash}
+            [exec] (Sh) {xterm -e sh}
+        [end]
+
+        [submenu] (Utilities)
+            [include] (~/.config/violetium/utilities.menu)
+        [end]
+
+        [submenu] (Installed Apps)
+            [include] (~/.config/violetium/installed-apps.menu)
+        [end]
+
+        [submenu] (My Apps)
+            [include] (~/.config/violetium/my-apps.menu)
+            [separator]
+            [exec] (Add App) {xterm -e "$HOME/.local/bin/violetium-my-apps" add}
+            [exec] (Remove App) {xterm -e "$HOME/.local/bin/violetium-my-apps" remove}
+        [end]
+
+    [end]
+
+    [submenu] (Settings)
+        [include] (~/.config/violetium/settings.menu)
+    [end]
+
+    [submenu] (Volume)
+        [include] (~/.config/violetium/volume.menu)
+    [end]
+
+    [separator]
+
+    [config] (Fluxbox Settings)
+    [reconfig] (Reload Fluxbox)
+    [restart] (Restart Fluxbox)
+    [exit] (Log Out)
+
+[end]
