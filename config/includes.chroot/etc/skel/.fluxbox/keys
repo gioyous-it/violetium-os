@@ -1,0 +1,10 @@
+# VioletiumOS media keys
+
+XF86AudioRaiseVolume :ExecCommand wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+XF86AudioLowerVolume :ExecCommand wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+XF86AudioMute :ExecCommand wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+XF86AudioPlay :ExecCommand playerctl play-pause
+XF86AudioPause :ExecCommand playerctl play-pause
+XF86AudioNext :ExecCommand playerctl next
+XF86AudioPrev :ExecCommand playerctl previous

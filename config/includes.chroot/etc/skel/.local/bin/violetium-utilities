@@ -1,0 +1,22 @@
+#!/bin/sh
+
+INPUT="$HOME/.config/violetium/utilities"
+OUTPUT="$HOME/.config/violetium/utilities.menu"
+
+mkdir -p "$(dirname "$OUTPUT")"
+
+{
+    while IFS='|' read -r name command; do
+        case "$name" in
+            ""|\#*) continue ;;
+        esac
+
+        [ -z "$command" ] && continue
+
+        # Escape Fluxbox menu characters.
+        name=$(printf '%s' "$name" | sed 's/([)]/)/g')
+        command=$(printf '%s' "$command" | sed 's/([)]/)/g')
+
+        printf '[exec] (%s) {%s}\n' "$name" "$command"
+    done < "$INPUT"
+} > "$OUTPUT"

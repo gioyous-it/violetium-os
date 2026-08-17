@@ -5,7 +5,6 @@ ALL_ARCHES=(
     amd64
     arm64
     armhf
-    i386
     ppc64el
     riscv64
     s390x
@@ -30,7 +29,19 @@ mkdir -p "$OUT"
 
 for ARCH in "${ARCHES[@]}"; do
     case "$ARCH" in
-        amd64|arm64|armhf|i386|ppc64el|riscv64|s390x) ;;
+        amd64|arm64|armhf|ppc64el|riscv64|s390x)
+            ;;
+        i386)
+            echo "ERROR: i386 is not currently supported."
+            echo "VioletiumOS is based on Debian Trixie, which no longer provides an official bootable i386 kernel."
+            echo "i386 support may return in a future release."
+            exit 2
+            ;;
+        loong64)
+            echo "ERROR: LoongArch64 (loong64) is not currently supported."
+            echo "LoongArch64 support is coming soon."
+            exit 2
+            ;;
         *)
             echo "ERROR: unsupported architecture: $ARCH"
             exit 2
@@ -50,6 +61,46 @@ for ARCH in "${ARCHES[@]}"; do
 
     echo "--- Configuring $ARCH ---"
     VIOLETIUM_ARCH="$ARCH" ./auto/config
+
+    echo "--- Checking VioletiumOS packages for $ARCH ---"
+
+    PACKAGE_LIST="config/package-lists/violetium.list.chroot"
+    MISSING_PACKAGES=()
+
+    while IFS= read -r PACKAGE || [[ -n "$PACKAGE" ]]; do
+        PACKAGE="${PACKAGE%%#*}"
+        PACKAGE="$(echo "$PACKAGE" | xargs)"
+
+        [[ -z "$PACKAGE" ]] && continue
+
+        if ! apt-cache show "$PACKAGE" >/dev/null 2>&1; then
+            MISSING_PACKAGES+=("$PACKAGE")
+        fi
+    done < "$PACKAGE_LIST"
+
+    if [[ ${#MISSING_PACKAGES[@]} -gt 0 ]]; then
+        echo
+        echo "========================================"
+        echo " VioletiumOS Packages are Missing"
+        echo "========================================"
+        echo
+        printf '  %s\n' "${MISSING_PACKAGES[@]}"
+        echo
+        read -r -p "VioletiumOS Packages are Missing. Build anyway? [Y/n] " ANSWER
+        ANSWER="${ANSWER:-Y}"
+
+        case "$ANSWER" in
+            [Yy]|[Yy][Ee][Ss])
+                echo "Continuing build..."
+                ;;
+            *)
+                echo "Build cancelled."
+                exit 1
+                ;;
+        esac
+    else
+        echo "All VioletiumOS packages are available."
+    fi
 
     echo "--- Building $ARCH ---"
     sudo lb build

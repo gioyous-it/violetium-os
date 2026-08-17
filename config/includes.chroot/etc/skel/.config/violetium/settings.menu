@@ -1,0 +1,39 @@
+[submenu] (Audio)
+    [exec] (Volume & Devices) {pavucontrol}
+[end]
+
+[submenu] (Bluetooth)
+    [exec] (Bluetooth Manager) {blueman-manager}
+[end]
+
+[submenu] (Network)
+    [exec] (Network Connections) {nm-connection-editor}
+    [exec] (Network Manager) {xterm -e nmtui}
+[end]
+
+[submenu] (Display)
+    [exec] (Display Information) {xterm -e sh -c 'xrandr; printf "\nPress Enter to close..."; read'}
+[end]
+
+[submenu] (Appearance)
+    [exec] (Wallpaper) {nitrogen}
+    [exec] (Compositor) {xterm -e sh -c 'picom --help | less'}
+[end]
+
+[submenu] (Keyboard)
+    [exec] (Keyboard Devices) {xterm -e sh -c 'xinput list; printf "\nPress Enter to close..."; read'}
+[end]
+
+[submenu] (Mouse)
+    [exec] (Mouse Devices) {xterm -e sh -c 'xinput list; printf "\nPress Enter to close..."; read'}
+[end]
+
+[submenu] (Power)
+    [exec] (Power Status) {xterm -e sh -c 'upower -d; printf "\nPress Enter to close..."; read'}
+[end]
+
+[submenu] (Fluxbox)
+    [config] (Fluxbox Configuration)
+    [reconfig] (Reload Configuration)
+    [restart] (Restart Fluxbox)
+[end]

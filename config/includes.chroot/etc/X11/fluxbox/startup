@@ -8,3 +8,21 @@ cbatticon &
 
 # Future Wayland/Weston support — VioletiumOS 0.2.x
 # weston --backend=x11-backend.so &
+
+# Generate VioletiumOS user-customizable Utilities menu
+if [ -x "$HOME/.local/bin/violetium-utilities" ]; then
+    "$HOME/.local/bin/violetium-utilities"
+fi
+
+# Generate VioletiumOS Installed Apps menu
+if [ -x "$HOME/.local/bin/violetium-installed-apps" ]; then
+    "$HOME/.local/bin/violetium-installed-apps"
+fi
+
+# Generate VioletiumOS My Apps menu
+if [ -x "$HOME/.local/bin/violetium-my-apps" ]; then
+    "$HOME/.local/bin/violetium-my-apps"
+fi
+
+# VioletiumOS desktop icons
+pcmanfm --desktop &

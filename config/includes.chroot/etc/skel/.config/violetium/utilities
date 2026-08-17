@@ -1,0 +1,15 @@
+# VioletiumOS Utilities
+# Format:
+#   Display Name|command
+#
+# Edit this file to add, remove, or change Utilities.
+
+File Manager|pcmanfm
+Audio Control|pavucontrol
+Bluetooth|blueman-manager
+Network|nm-connection-editor
+Run Application|rofi -show drun
+Screenshot|maim -s
+Screenshot Area|slop
+Clipboard Manager|clipit
+Battery Monitor|cbatticon

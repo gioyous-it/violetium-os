@@ -1,42 +1,53 @@
 # VioletiumOS
 
-Violetium is a lightweight Debian-based Linux distribution designed to run well on old computers while remaining useful on modern hardware. It's also designed to be Slightly faster than many Debian Installation, while being more usable, and with no old Bloatware hidden in Debian.
+VioletiumOS is a lightweight Debian-based Linux distribution designed to make Debian more approachable for newer users. It aims to provide a usable desktop, essential applications, sensible defaults, and an accessible community while retaining the flexibility and software ecosystem of Debian.
 
 ## Current Normal Release
 
-Seedling 0.1.1 is the current release.
+Seedling 0.1.3 is the current release.
 
 ## Current LTS Release
 
-none
+None.
 
 ### Desktop
 
-- Fluxbox
-- Xorg
-- LightDM
-- Weston (Seedland 0.2)
+* Fluxbox
+* Xorg
+* LightDM
+* Weston (planned for Seedling 0.2)
 
 ### System
 
-- Debian base
-- NetworkManager
-- systemd (Seedling 0.1.2)
-- automatic ZRAM (Seedling 0.1.2)
-- lightweight package selection
+* Debian base
+* NetworkManager
+* systemd
+* Automatic ZRAM
+* Lightweight package selection
+* PipeWire audio
 
 ## Building
 
 VioletiumOS is built using Debian live-build.
 
-You can build in any of those ways:
+You can build it using:
 
-- build-all.sh
-- live-buuld
-  
+* `build-all.sh`
+* `live-build`
+
+Build all supported architectures:
+
 ```bash
 ./build-all.sh
 ```
+
+Build specific architectures:
+
+```bash
+./build-all.sh --archs amd64 arm64
+```
+
+Or build the currently configured architecture directly:
 
 ```bash
 sudo lb build
@@ -44,7 +55,7 @@ sudo lb build
 
 ## Status
 
-VioletiumOS is experimental software. Seedling 0.1.x is intended for testing and development.
+VioletiumOS is experimental software and is currently in pre-alpha development. Seedling 0.1.x releases are intended for testing and development.
 
 ## License
 

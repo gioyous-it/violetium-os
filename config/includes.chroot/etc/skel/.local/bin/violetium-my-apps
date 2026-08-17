@@ -1,0 +1,71 @@
+#!/bin/sh
+
+FILE="$HOME/.config/violetium/my-apps"
+MENU="$HOME/.config/violetium/my-apps.menu"
+
+mkdir -p "$(dirname "$FILE")"
+
+[ -f "$FILE" ] || touch "$FILE"
+
+generate() {
+    {
+        while IFS='|' read -r name command; do
+            [ -n "$name" ] || continue
+            [ -n "$command" ] || continue
+            printf '[exec] (%s) {%s}\n' "$name" "$command"
+        done < "$FILE"
+    } > "$MENU"
+}
+
+add_app() {
+    printf "Command: "
+    read -r command
+
+    [ -n "$command" ] || return
+
+    printf "Name: "
+    read -r name
+
+    [ -n "$name" ] || return
+
+    if grep -Fq "|$command" "$FILE" || grep -Fq "$name|" "$FILE"; then
+        echo "That app already exists."
+        return
+    fi
+
+    printf '%s|%s\n' "$name" "$command" >> "$FILE"
+
+    number=$(wc -l < "$FILE")
+    echo "Added as entry #$number"
+}
+
+remove_app() {
+    if [ ! -s "$FILE" ]; then
+        echo "No My Apps entries."
+        return
+    fi
+
+    echo
+    nl -w2 -s'. ' "$FILE"
+    echo
+    printf "Entry number to remove: "
+    read -r number
+
+    case "$number" in
+        ''|*[!0-9]*) echo "Invalid number."; return ;;
+    esac
+
+    sed -i "${number}d" "$FILE"
+    echo "Removed entry #$number"
+}
+
+case "${1:-}" in
+    add)
+        add_app
+        ;;
+    remove)
+        remove_app
+        ;;
+esac
+
+generate
