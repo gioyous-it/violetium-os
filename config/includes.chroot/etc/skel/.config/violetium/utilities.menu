@@ -1,0 +1,8 @@
+[exec] (File Manager) {pcmanfm}
+[exec] (Audio Control) {pavucontrol}
+[exec] (Bluetooth) {blueman-manager}
+[exec] (Network) {nm-connection-editor}
+[exec] (Run Application) {rofi -show drun}
+[exec] (Screenshot) {maim -s}
+[exec] (Clipboard Manager) {diodon}
+[exec] (Battery Monitor) {cbatticon}

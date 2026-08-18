@@ -1,3 +1,7 @@
 session.styleFile: /usr/share/fluxbox/styles/debian-dark
 session.screen0.workspaces: 4
 session.keyFile: ~/.fluxbox/keys
+session.screen0.toolbar.tools: button.violetium,workspacename,prevworkspace,nextworkspace,iconbar,systemtray,clock
+session.screen0.toolbar.button.violetium.label: Violetium
+session.screen0.toolbar.button.violetium.commands: RootMenu
+session.screen0.toolbar.visible: true

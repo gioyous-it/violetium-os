@@ -4,7 +4,7 @@ VioletiumOS is a lightweight Debian-based Linux distribution designed to make De
 
 ## Current Normal Release
 
-Seedling 0.1.3 is the current release.
+Seedling 0.1.4 is the current release.
 
 ## Current LTS Release
 
@@ -35,7 +35,7 @@ You can build it using:
 * `build-all.sh`
 * `live-build`
 
-Build all supported architectures:
+Build all configured architectures:
 
 ```bash
 ./build-all.sh

@@ -1,6 +1,6 @@
 fluxbox
 rofi
-nitrogen
+feh
 picom
 xorg
 # weston 
@@ -34,7 +34,7 @@ xinput
 x11-xserver-utils
 polkitd
 pkexec
-clipit
+diodon
 pcmanfm
 maim
 slop
@@ -46,3 +46,10 @@ gstreamer1.0-plugins-base
 gstreamer1.0-plugins-good
 pulseaudio-utils
 playerctl
+
+# if most settings immediately crash, or-
+# if you have problems related to terminals,-
+# uncomment those two packages:
+
+# xterm
+# uxterm

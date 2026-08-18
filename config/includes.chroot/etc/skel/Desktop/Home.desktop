@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Home
-Comment=Open your home folder
-Exec=pcmanfm %U
-Icon=user-home
-Terminal=false
-Categories=FileManager;

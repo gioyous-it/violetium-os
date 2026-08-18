@@ -1,6 +1,8 @@
 #!/bin/sh
 
-# Battery indicator
+# System tray applets
+nm-applet &
+blueman-applet &
 cbatticon &
 
 # Future wallpaper
@@ -24,5 +26,33 @@ if [ -x "$HOME/.local/bin/violetium-my-apps" ]; then
     "$HOME/.local/bin/violetium-my-apps"
 fi
 
+# Restore saved wallpaper
+if [ -x "$HOME/.fehbg" ]; then
+    "$HOME/.fehbg"
+fi
+
+# Live-environment-only desktop icon
+if [ -d /run/live/medium ] || [ -d /lib/live/mount/medium ]; then
+    mkdir -p "$HOME/Desktop"
+
+    cat > "$HOME/Desktop/VioletiumOS Webpage.desktop" <<'DESKTOP'
+[Desktop Entry]
+Type=Application
+Name=VioletiumOS Webpage
+Comment=Open the VioletiumOS website
+Exec=firefox https://violetium.gioyous.it
+Icon=firefox
+Terminal=false
+Categories=Network;
+DESKTOP
+
+    chmod +x "$HOME/Desktop/VioletiumOS Webpage.desktop"
+fi
+
 # VioletiumOS desktop icons
 pcmanfm --desktop &
+
+# Live-environment-only welcome window
+if [ -d /run/live/medium ] || [ -d /lib/live/mount/medium ]; then
+    violetium-welcome &
+fi

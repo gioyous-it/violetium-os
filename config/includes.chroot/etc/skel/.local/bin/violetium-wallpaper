@@ -1,0 +1,10 @@
+#!/bin/sh
+
+FILE=$(find "$HOME" -type f \
+    \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \
+       -o -iname '*.webp' -o -iname '*.bmp' \) 2>/dev/null |
+    rofi -dmenu -i -p "Wallpaper")
+
+[ -z "$FILE" ] && exit 0
+
+feh --bg-fill "$FILE"

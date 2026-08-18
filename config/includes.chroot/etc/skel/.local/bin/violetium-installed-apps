@@ -6,6 +6,11 @@ mkdir -p "$(dirname "$OUTPUT")"
 find /usr/share/applications "$HOME/.local/share/applications" \
     -type f -name '*.desktop' 2>/dev/null |
 while read -r file; do
+    # Skip non-application, hidden, and internal desktop entries.
+    grep -q '^Type=Application' "$file" || continue
+    grep -q '^Hidden=true' "$file" && continue
+    grep -q '^NoDisplay=true' "$file" && continue
+
     name=$(grep -m1 '^Name=' "$file" | cut -d= -f2-)
     exec=$(grep -m1 '^Exec=' "$file" | cut -d= -f2-)
 

@@ -10,6 +10,5 @@ Bluetooth|blueman-manager
 Network|nm-connection-editor
 Run Application|rofi -show drun
 Screenshot|maim -s
-Screenshot Area|slop
-Clipboard Manager|clipit
+Clipboard Manager|diodon
 Battery Monitor|cbatticon

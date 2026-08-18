@@ -35,6 +35,8 @@
 
     [separator]
 
+    [stylesdir] (/usr/share/fluxbox/styles) {Themes}
+
     [config] (Fluxbox Settings)
     [reconfig] (Reload Fluxbox)
     [restart] (Restart Fluxbox)

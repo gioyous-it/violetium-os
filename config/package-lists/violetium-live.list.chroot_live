@@ -1,0 +1,29 @@
+# Live-environment-only packages
+
+# Browser
+firefox-esr
+
+# Games
+supertux
+extremetuxracer
+
+# Development
+git
+
+# System information / monitoring
+htop
+lshw
+inxi
+
+# Hardware / disk diagnostics
+smartmontools
+pciutils
+usbutils
+
+# Network diagnostics
+iputils-ping
+traceroute
+dnsutils
+
+# System testing
+stress-ng

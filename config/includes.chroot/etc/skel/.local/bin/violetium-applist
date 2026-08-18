@@ -1,0 +1,85 @@
+#!/bin/sh
+
+FILE="$HOME/.config/violetium/my-apps"
+
+mkdir -p "$(dirname "$FILE")"
+[ -f "$FILE" ] || touch "$FILE"
+
+list_apps() {
+    if [ ! -s "$FILE" ]; then
+        echo "No My Apps entries."
+        return
+    fi
+
+    number=0
+    while IFS='|' read -r name command; do
+        [ -n "$name" ] || continue
+        [ -n "$command" ] || continue
+
+        number=$((number + 1))
+        printf '%2d. %s → %s\n' "$number" "$name" "$command"
+    done < "$FILE"
+}
+
+add_app() {
+    name=$1
+    command=$2
+
+    if [ -z "$name" ] || [ -z "$command" ]; then
+        echo "Usage: violetium-applist add \"Name\" \"Command\""
+        return 1
+    fi
+
+    if grep -Fq "|$command" "$FILE" || grep -Fq "$name|" "$FILE"; then
+        echo "That app already exists."
+        return 1
+    fi
+
+    printf '%s|%s\n' "$name" "$command" >> "$FILE"
+    echo "Added: $name"
+}
+
+remove_app() {
+    number=$1
+
+    case "$number" in
+        ''|*[!0-9]*)
+            echo "Usage: violetium-applist remove NUMBER"
+            return 1
+            ;;
+    esac
+
+    if [ "$number" -lt 1 ] || [ "$number" -gt "$(wc -l < "$FILE")" ]; then
+        echo "Invalid app number."
+        return 1
+    fi
+
+    sed -i "${number}d" "$FILE"
+    echo "Removed app #$number"
+}
+
+case "${1:-list}" in
+    list)
+        list_apps
+        ;;
+    add)
+        add_app "$2" "$3"
+        ;;
+    remove)
+        remove_app "$2"
+        ;;
+    *)
+        echo "VioletiumOS App List"
+        echo
+        echo "Usage:"
+        echo "  violetium-applist list"
+        echo "  violetium-applist add \"Name\" \"Command\""
+        echo "  violetium-applist remove NUMBER"
+        exit 1
+        ;;
+esac
+
+# Regenerate the Fluxbox menu after changes.
+if [ -x "$HOME/.local/bin/violetium-my-apps" ]; then
+    "$HOME/.local/bin/violetium-my-apps"
+fi
