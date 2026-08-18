@@ -42,3 +42,6 @@ chroot.packages.live
 
 # build script since 0.1.2
 releases/
+
+# QEMU test disk
+violetium-test.qcow2
