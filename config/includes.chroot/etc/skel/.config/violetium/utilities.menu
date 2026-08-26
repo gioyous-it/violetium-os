@@ -6,3 +6,6 @@
 [exec] (Screenshot) {maim -s}
 [exec] (Clipboard Manager) {diodon}
 [exec] (Battery Monitor) {cbatticon}
+[exec] (Text Editor) {mousepad}
+[exec] (Calculator) {galculator}
+[exec] (Archive Manager) {xarchiver}

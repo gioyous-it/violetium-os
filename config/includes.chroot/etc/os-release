@@ -1,7 +1,7 @@
 NAME="VioletiumOS"
-PRETTY_NAME="VioletiumOS Seedling 0.1.4"
+PRETTY_NAME="VioletiumOS Seedling 0.1.5"
 ID=violetium
 ID_LIKE=debian
-VERSION_ID="0.1.4"
-VERSION="Seedling 0.1.4"
+VERSION_ID="0.1.5"
+VERSION="Seedling 0.1.5"
 HOME_URL="https://github.com/gioyous-it/violetium-os"

@@ -1,29 +1,9 @@
 # Live-environment-only packages
 
 # Browser
-firefox-esr
+# firefox-esr
 
-# Games
-supertux
-extremetuxracer
-
-# Development
-git
-
-# System information / monitoring
-htop
-lshw
-inxi
-
-# Hardware / disk diagnostics
-smartmontools
-pciutils
-usbutils
-
-# Network diagnostics
-iputils-ping
-traceroute
-dnsutils
-
-# System testing
-stress-ng
+# i wanted to use chromium, but people find it controversial-
+# to use chromium for the live environment.
+# firefox crashes on my host machine due to a OOM, but chromium doesn't.
+# does anyone else prefer chromium over firefox?

@@ -1,9 +1,20 @@
 fluxbox
+# fbdesk - not available
+# fbrun - comes by default, and not available??
+fbautostart
+# fbpager - v0.2
+# fbpanel - most likely not available
 rofi
 feh
 picom
+xdg-utils
+shared-mime-info
+desktop-file-utils
 xorg
-# weston 
+xfonts-terminus
+fonts-noto-color-emoji
+# gioyous-it-hub-1032-fix-violetium-os - requires to be installed from a third party. nah jus tkidding i made it up
+# weston - v0.2
 lightdm
 network-manager
 network-manager-applet
@@ -47,9 +58,50 @@ gstreamer1.0-plugins-good
 pulseaudio-utils
 playerctl
 
-# if most settings immediately crash, or-
-# if you have problems related to terminals,-
-# uncomment those two packages:
+# the below packages may be installed by default
 
-# xterm
+xterm
 # uxterm
+
+# Basic desktop and hardware support
+iproute2
+iputils-ping
+file
+brightnessctl
+pciutils
+usbutils
+xclip
+xsel
+gvfs
+gvfs-backends
+udisks2
+dunst
+power-profiles-daemon
+
+# Removable storage support
+gvfs-daemons
+ntfs-3g
+exfatprogs
+mailcap
+fonts-dejavu
+fonts-noto-core
+fonts-unifont
+i3lock
+gvfs-fuse
+lxpolkit
+
+# Input hardware support
+xserver-xorg-input-libinput
+xserver-xorg-input-joystick
+xserver-xorg-input-wacom
+evtest
+
+# Lightweight desktop utilities
+mousepad
+galculator
+xarchiver
+xdg-user-dirs
+xdg-user-dirs-gtk
+
+lynx
+media-types

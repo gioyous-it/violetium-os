@@ -8,3 +8,10 @@ XF86AudioPlay :ExecCommand playerctl play-pause
 XF86AudioPause :ExecCommand playerctl play-pause
 XF86AudioNext :ExecCommand playerctl next
 XF86AudioPrev :ExecCommand playerctl previous
+
+# VioletiumOS quick command / lock shortcuts
+Mod4 r :ExecCommand fbrun
+Alt F2 :ExecCommand rofi -show run
+Mod4 l :ExecCommand i3lock
+None Super_L :RootMenu
+None Super_R :ExecCommand xterm
