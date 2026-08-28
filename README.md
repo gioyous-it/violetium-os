@@ -1,5 +1,7 @@
 # VioletiumOS
 
+[![GitHub Stars](https://img.shields.io/github/stars/gioyous-it/violetium-os?style=for-the-badge&logo=github)](https://github.com/gioyous-it/violetium-os)
+
 VioletiumOS is a lightweight Debian-based Linux distribution designed to make Debian more approachable for newer users. It aims to provide a usable desktop, essential applications, sensible defaults, and an accessible community while retaining the flexibility and software ecosystem of Debian.
 
 ## Current Normal Release
