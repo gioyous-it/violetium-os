@@ -3,7 +3,7 @@
 [![Stars](https://img.shields.io/github/stars/gioyous-it/violetium-os?style=for-the-badge&logo=github)](https://github.com/gioyous-it/violetium-os)
 [![Forks](https://img.shields.io/github/forks/gioyous-it/violetium-os?style=for-the-badge&logo=github)](https://github.com/gioyous-it/violetium-os/network/members)
 [![Issues](https://img.shields.io/github/issues/gioyous-it/violetium-os?style=for-the-badge&logo=github)](https://github.com/gioyous-it/violetium-os/issues)
-[![Last Commit](https://img.shields.io/github/last-commit/gioyous-it/violetium-os?style=for-the-badge&logo=github)](https://github.com/gioyous-it/violetium-os/commits/main)
+[![Last Commit](https://img.shields.io/github/last-commit/gioyous-it/violetium-os?style=for-the-badge&logo=github)](https://github.com/gioyous-it/violetium-os/commits/main) ![Debian](https://img.shields.io/badge/based_on-Debian-A81D33?style=for-the-badge&logo=debian) [![License](https://img.shields.io/github/license/gioyous-it/violetium-os?style=for-the-badge)](https://github.com/gioyous-it/violetium-os/blob/main/LICENSE)
 
 VioletiumOS is a lightweight Debian-based Linux distribution designed to make Debian more approachable for newer users. It aims to provide a usable desktop, essential applications, sensible defaults, and an accessible community while retaining the flexibility and software ecosystem of Debian.
 
